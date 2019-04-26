@@ -5,7 +5,7 @@ services:
     environment:
       AUTHOR: "Beltrano"
       VIRTUAL_HOST: "localhost"
-      VIRTUAL_PATH: "/ai"
+      VIRTUAL_PATH: "/app1"
     ports:
     - 8000:80
   webapp2:
@@ -15,7 +15,7 @@ services:
     environment:
       AUTHOR: "Fulano"
       VIRTUAL_HOST: "localhost"
-      VIRTUAL_PATH: "/oi"
+      VIRTUAL_PATH: "/app2"
   proxy:
     image: upstreamable/nginx-proxy:alpine-0.7.0
     ports:
