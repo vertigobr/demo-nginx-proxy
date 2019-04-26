@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  webapp1:
+    build: .
+    environment:
+      AUTHOR: "Beltrano"
+      VIRTUAL_HOST: "localhost"
+      VIRTUAL_PATH: "/ai"
+    ports:
+    - 8000:80
+  webapp2:
+    build: .
+    ports:
+    - 8001:80
+    environment:
+      AUTHOR: "Fulano"
+      VIRTUAL_HOST: "localhost"
+      VIRTUAL_PATH: "/oi"
+  proxy:
+    image: upstreamable/nginx-proxy:alpine-0.7.0
+    ports:
+    - 80:80
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
